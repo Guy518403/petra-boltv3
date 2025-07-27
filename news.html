@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Casino News - Latest Gaming Industry Updates</title>
+    <meta name="description" content="Stay updated with the latest casino and gaming industry news. Expert insights, game releases, and market trends from Jordan's premier gaming authority.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .news-section {
+        padding: 4rem 0;
+        background: linear-gradient(135deg, #0f172a 0%, #064e3b 100%);
+        padding-top: 5.5rem;
+        min-height: 100vh;
+      }
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+      .news-card {
+        background: rgba(15,23,42,0.36);
+        border-radius: 16px;
+        box-shadow: 0 4px 18px 0 rgba(0,0,0,0.18);
+        border: 1.5px solid rgba(16,185,129,0.18);
+        padding: 1.5rem;
+        position: relative;
+        overflow: hidden;
+        transition: box-shadow 0.3s, transform 0.2s;
+      }
+      .news-card:hover {
+        box-shadow: 0 10px 32px 0 #10b981cc;
+        transform: translateY(-4px) scale(1.02);
+        border-color: var(--accent-emerald);
+      }
+      .news-card-date {
+        font-size: 0.9rem;
+        color: #10b981;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      .news-card-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #a7f3d0;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+      }
+      .news-card-excerpt {
+        color: #d1fae5;
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+      .news-card-tag {
+        display: inline-block;
+        background: rgba(16,185,129,0.2);
+        color: #10b981;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .news-hero {
+        background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(15,23,42,0.9) 100%);
+        border-radius: 20px;
+        padding: 3rem 2rem;
+        margin-bottom: 3rem;
+        text-align: center;
+        border: 2px solid rgba(16,185,129,0.3);
+      }
+      .news-hero h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #10b981;
+        margin-bottom: 1rem;
+      }
+      .news-hero p {
+        font-size: 1.2rem;
+        color: #d1fae5;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .main-nav {
+        display: flex;
+        gap: 2.2rem;
+        align-items: center;
+      }
+      .nav-link {
+        color: var(--luxury-white);
+        text-decoration: none;
+        font-size: 1.08rem;
+        font-weight: 600;
+        padding: 0.3rem 1.1rem;
+        border-radius: 8px;
+        transition: background 0.2s, color 0.2s;
+        position: relative;
+        background: none;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        display: inline-block;
+      }
+      .nav-link.active, .nav-link:hover {
+        background: var(--accent-emerald);
+        color: var(--primary-dark);
+        box-shadow: 0 2px 12px rgba(16,185,129,0.13);
+      }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+      <div class="header-content">
+        <div class="logo aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000">
+          <span class="logo-icon">💎</span>
+          <span class="logo-text"></span>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="games.html" class="nav-link">Games</a>
+          <a href="information.html" class="nav-link">Promotions</a>
+          <a href="news.html" class="nav-link active">News</a>
+        </nav>
+        <div class="language-switcher aos-init aos-animate" data-aos="fade-left" data-aos-duration="1000">
+          <button id="lang-en" class="lang-btn card-3d">EN</button>
+          <button id="lang-ar" class="lang-btn card-3d">AR</button>
+        </div>
+      </div>
+    </header>
+    
+    <section class="news-section">
+        <div class="container">
+            <div class="news-hero" data-aos="fade-up" data-aos-duration="1000">
+                <h1 id="news-hero-title">Elite Casino News</h1>
+                <p id="news-hero-subtitle">Stay informed with the latest gaming industry insights, market trends, and exclusive updates from Jordan's premier casino authority.</p>
+            </div>
+            
+            <div class="news-grid" id="news-grid">
+                <!-- News articles will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-disclaimer">
+                    <p id="disclaimer">Gaming may be habit-forming. Play responsibly and within limits.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#" id="terms-link" class="footer-link">Service Terms</a>
+                    <a href="#" id="privacy-link" class="footer-link">Privacy Policy</a>
+                    <a href="#" id="contact-link" class="footer-link">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="news.js"></script>
+    <script>AOS.init({ duration: 1000, easing: 'ease-out-cubic', once: true, offset: 100 });</script>
+    <script>
+      function setActiveLang(lang) {
+        localStorage.setItem('elite-casino-lang', lang);
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        document.getElementById('lang-en').classList.remove('active');
+        document.getElementById('lang-ar').classList.remove('active');
+        if (lang === 'en') {
+          document.getElementById('lang-en').classList.add('active');
+        } else {
+          document.getElementById('lang-ar').classList.add('active');
+        }
+      }
+      document.getElementById('lang-en').addEventListener('click', function() {
+        setActiveLang('en');
+        location.reload();
+      });
+      document.getElementById('lang-ar').addEventListener('click', function() {
+        setActiveLang('ar');
+        location.reload();
+      });
+      // On load, set active button and direction
+      (function() {
+        var lang = localStorage.getItem('elite-casino-lang') || 'en';
+        setActiveLang(lang);
+      })();
+    </script>
+</body>
+</html>

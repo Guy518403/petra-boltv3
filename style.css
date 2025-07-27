@@ -1,0 +1,1729 @@
+/* Elite Casino Guide Website - Enhanced with Emerald/Teal Luxury Theme */
+
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Emerald/Teal Luxury Color Palette */
+    --primary-dark: #0f172a;
+    --primary-slate: #1e293b;
+    --primary-emerald: #064e3b;
+    --accent-emerald: #10b981;
+    --accent-emerald-dark: #059669;
+    --accent-emerald-light: #d1fae5;
+    --luxury-white: #f8fafc;
+    --luxury-grey: #64748b;
+    --luxury-dark: #0f172a;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    
+    /* Enhanced Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+    
+    /* Luxury Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    --spacing-4xl: 6rem;
+    
+    /* Premium Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-luxury: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-emerald: 0 0 30px rgba(16, 185, 129, 0.3);
+    
+    /* Smooth Transitions */
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-luxury: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Enhanced Base Elements */
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--luxury-white);
+    background: var(--primary-dark);
+    font-size: var(--font-size-base);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    height: auto !important;
+    overflow-y: scroll !important;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Parallax Background System */
+.parallax-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(6, 78, 59, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(5, 150, 105, 0.1) 0%, transparent 50%);
+    will-change: transform;
+}
+
+.parallax-layer:nth-child(1) {
+    background-size: 800px 800px;
+    animation: float 20s ease-in-out infinite;
+}
+
+.parallax-layer:nth-child(2) {
+    background-size: 600px 600px;
+    animation: float 15s ease-in-out infinite reverse;
+}
+
+.parallax-layer:nth-child(3) {
+    background-size: 400px 400px;
+    animation: float 25s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(1deg); }
+    66% { transform: translateY(10px) rotate(-1deg); }
+}
+
+/* Particles System */
+#particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--accent-emerald);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: particleFloat 8s linear infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Enhanced Header with Glass Effect */
+.header {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all var(--transition-normal);
+}
+
+.header.scrolled {
+    background: rgba(15, 23, 42, 0.95);
+    box-shadow: var(--shadow-luxury);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg) 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 700;
+    font-size: var(--font-size-xl);
+    color: var(--accent-emerald);
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+    transition: all var(--transition-luxury);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 30px rgba(16, 185, 129, 0.8);
+}
+
+.logo-icon {
+    font-size: var(--font-size-2xl);
+    animation: logoSpin 10s linear infinite;
+}
+
+@keyframes logoSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 3D Language Switcher */
+.language-switcher {
+    display: flex;
+    gap: var(--spacing-xs);
+    background: rgba(15, 23, 42, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: var(--spacing-xs);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--luxury-grey);
+    transition: all var(--transition-luxury);
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.2), transparent);
+    transition: left var(--transition-normal);
+}
+
+.lang-btn:hover::before {
+    left: 100%;
+}
+
+.lang-btn:hover {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent-emerald);
+    transform: translateY(-2px) rotateX(5deg);
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+}
+
+.lang-btn.active {
+    background: var(--accent-emerald);
+    color: var(--primary-dark);
+    box-shadow: var(--shadow-emerald);
+    transform: translateY(-1px);
+}
+
+/* Enhanced Hero Section */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-slate) 50%, var(--primary-emerald) 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-bg-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(16, 185, 129, 0.1), rgba(6, 78, 59, 0.1));
+    filter: blur(1px);
+    animation: shapeFloat 20s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    right: 10%;
+    animation-delay: -7s;
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    bottom: 20%;
+    left: 60%;
+    animation-delay: -14s;
+}
+
+@keyframes shapeFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+    33% { transform: translateY(-30px) rotate(120deg) scale(1.1); }
+    66% { transform: translateY(20px) rotate(240deg) scale(0.9); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-headline {
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+    margin-bottom: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--luxury-white) 0%, var(--accent-emerald) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+    line-height: 1.2;
+}
+
+.hero-subheadline {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-3xl);
+    opacity: 0.9;
+    color: var(--luxury-white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Luxury Button System */
+.luxury-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-lg) var(--spacing-2xl);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-luxury);
+    transform-style: preserve-3d;
+    overflow: hidden;
+    min-width: 220px;
+    justify-content: center;
+}
+
+.btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left var(--transition-slow);
+}
+
+.luxury-btn:hover .btn-shine {
+    left: 100%;
+}
+
+.cta-primary {
+    background: linear-gradient(135deg, var(--accent-emerald) 0%, var(--accent-emerald-dark) 100%);
+    color: var(--primary-dark);
+    box-shadow: var(--shadow-emerald);
+    border: 2px solid var(--accent-emerald);
+}
+
+.cta-primary:hover {
+    transform: translateY(-4px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
+    background: linear-gradient(135deg, var(--accent-emerald-dark) 0%, var(--accent-emerald) 100%);
+}
+
+.cta-secondary {
+    background: rgba(15, 23, 42, 0.3);
+    color: var(--luxury-white);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.cta-secondary:hover {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: var(--accent-emerald);
+    transform: translateY(-4px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+}
+
+.hero-ctas {
+    display: flex;
+    gap: var(--spacing-xl);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Floating Elements */
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-card {
+    position: absolute;
+    font-size: var(--font-size-3xl);
+    opacity: 0.6;
+    animation: floatingCard 8s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3));
+}
+
+.floating-card:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-card:nth-child(2) {
+    top: 30%;
+    right: 15%;
+    animation-delay: -2s;
+}
+
+.floating-card:nth-child(3) {
+    bottom: 30%;
+    left: 20%;
+    animation-delay: -4s;
+}
+
+.floating-card:nth-child(4) {
+    bottom: 20%;
+    right: 10%;
+    animation-delay: -6s;
+}
+
+@keyframes floatingCard {
+    0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+    25% { transform: translateY(-20px) rotate(5deg) scale(1.1); }
+    50% { transform: translateY(10px) rotate(-3deg) scale(0.9); }
+    75% { transform: translateY(-15px) rotate(2deg) scale(1.05); }
+}
+
+/* Enhanced Section Styling */
+.section-title {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+    background: linear-gradient(135deg, var(--luxury-white) 0%, var(--accent-emerald) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-emerald), var(--accent-emerald-dark));
+    border-radius: 2px;
+}
+
+/* 3D Ranking Section */
+.ranking {
+    padding: var(--spacing-4xl) 0;
+    background: linear-gradient(135deg, var(--primary-slate) 0%, var(--primary-emerald) 100%);
+    position: relative;
+}
+
+.table-3d-wrapper {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.ranking-table-container {
+    overflow-x: auto;
+    border-radius: 16px;
+    background: rgba(15, 23, 42, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    box-shadow: var(--shadow-luxury);
+    transition: all var(--transition-luxury);
+}
+
+.ranking-table-container:hover {
+    transform: rotateX(2deg) rotateY(1deg);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-base);
+    table-layout: fixed;
+}
+
+.ranking-table .casino-name {
+    max-width: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.ranking-table th,
+.ranking-table td {
+    padding: var(--spacing-lg);
+    text-align: center;
+    border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+    transition: all var(--transition-normal);
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ranking-table th {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-slate) 100%);
+    color: var(--accent-emerald);
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.ranking-table th::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+    transition: left var(--transition-normal);
+}
+
+.ranking-table th:hover::before {
+    left: 100%;
+}
+
+.ranking-table th:hover {
+    background: linear-gradient(135deg, var(--primary-slate) 0%, var(--primary-emerald) 100%);
+    transform: translateY(-2px);
+}
+
+.ranking-table .petra-row {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    position: relative;
+    z-index: 0;
+}
+
+.ranking-table .petra-row::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+    animation: petraGlow 3s ease-in-out infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes petraGlow {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+.ranking-table .petra-row td {
+    color: var(--accent-emerald);
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.score {
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    text-shadow: 0 0 5px currentColor;
+}
+
+.score.high { color: var(--success); }
+.score.medium { color: var(--warning); }
+.score.low { color: var(--error); }
+
+/* 3D Review Cards */
+.reviews {
+    padding: var(--spacing-4xl) 0;
+    background: var(--primary-dark);
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-2xl);
+}
+
+.review-card {
+    background: rgba(15, 23, 42, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: var(--spacing-2xl);
+    border: 1.5px solid rgba(16, 185, 129, 0.22);
+    box-shadow: 0 4px 18px 0 rgba(16,185,129,0.10), 0 0 0 2px rgba(16,185,129,0.10);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.36) 60%, rgba(16,185,129,0.04) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.review-card::after {
+    content: '';
+    position: absolute;
+    top: -30%; left: -30%;
+    width: 160%; height: 160%;
+    background: radial-gradient(circle at 60% 40%, rgba(16,185,129,0.13) 0%, transparent 70%);
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.4s;
+}
+
+.review-card:hover {
+    border: 2.5px solid var(--accent-emerald);
+    box-shadow: 0 12px 48px 0 #10b981cc, 0 0 32px 8px #10b981cc;
+    background: linear-gradient(135deg, rgba(16,185,129,0.10) 0%, rgba(15,23,42,0.36) 100%);
+    z-index: 2;
+}
+
+.review-card:hover::after {
+    opacity: 1;
+    animation: emeraldShine 1.2s linear;
+}
+
+@keyframes emeraldShine {
+    0% { opacity: 0.7; filter: blur(0px); }
+    50% { opacity: 1; filter: blur(2px); }
+    100% { opacity: 0.7; filter: blur(0px); }
+}
+
+.review-card.petra {
+    border: 2px solid var(--accent-emerald);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(15, 23, 42, 0.3) 100%);
+    box-shadow: var(--shadow-emerald);
+}
+
+.review-card.petra:hover {
+    transform: translateY(-15px) rotateX(8deg) rotateY(3deg);
+    box-shadow: 0 30px 60px rgba(16, 185, 129, 0.3);
+}
+
+/* Tips Section with Morphing Effects */
+.tips {
+    padding: var(--spacing-4xl) 0;
+    background: linear-gradient(135deg, var(--primary-slate) 0%, var(--primary-dark) 100%);
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.tip-card {
+    background: rgba(15, 23, 42, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: var(--spacing-xl);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    text-align: center;
+    transition: all var(--transition-luxury);
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+}
+
+.tip-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+    transition: all var(--transition-slow);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.tip-card:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.tip-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--accent-emerald);
+    box-shadow: var(--shadow-luxury);
+}
+
+.tip-icon {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-md);
+    display: block;
+    transition: all var(--transition-luxury);
+}
+
+.tip-card:hover .tip-icon {
+    transform: scale(1.2) rotate(10deg);
+    filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.5));
+}
+
+/* Banking Section */
+.banking {
+    padding: var(--spacing-4xl) 0;
+    background: var(--primary-dark);
+}
+
+.banking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-2xl);
+}
+
+.banking-card {
+    background: rgba(15, 23, 42, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: var(--spacing-xl);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    text-align: center;
+    transition: all var(--transition-luxury);
+    transform-style: preserve-3d;
+}
+
+.banking-card:hover {
+    transform: translateY(-6px) rotateX(3deg);
+    border-color: var(--accent-emerald);
+    box-shadow: var(--shadow-luxury);
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-slate) 100%);
+    color: var(--luxury-white);
+    padding: var(--spacing-3xl) 0;
+    border-top: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.footer-link {
+    color: var(--luxury-white);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-emerald);
+    transition: width var(--transition-normal);
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+.footer-link:hover {
+    color: var(--accent-emerald);
+}
+
+/* Additional Sections Styling */
+.bonuses, .mobile, .support, .responsible {
+    padding: var(--spacing-4xl) 0;
+}
+
+.bonuses {
+    background: linear-gradient(135deg, var(--primary-emerald) 0%, var(--primary-slate) 100%);
+}
+
+.mobile {
+    background: var(--primary-dark);
+}
+
+.support {
+    background: linear-gradient(135deg, var(--primary-slate) 0%, var(--primary-dark) 100%);
+}
+
+.responsible {
+    background: var(--primary-emerald);
+}
+
+/* Grid Layouts for New Sections */
+.bonuses-grid, .mobile-grid, .support-grid, .responsible-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-2xl);
+}
+
+/* Card Styles for New Sections */
+.bonus-card, .mobile-card, .support-card, .responsible-card {
+    background: rgba(15, 23, 42, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: var(--spacing-xl);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    text-align: center;
+    transition: all var(--transition-luxury);
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+}
+
+.bonus-card::before, .mobile-card:hover::before, .support-card:hover::before, .responsible-card:hover::before {
+    opacity: 1;
+}
+
+.bonus-card:hover, .mobile-card:hover, .support-card:hover, .responsible-card:hover {
+    transform: translateY(-8px) rotateX(5deg) rotateY(2deg);
+    border-color: var(--accent-emerald);
+    box-shadow: var(--shadow-luxury);
+}
+
+/* Icon Styles for New Sections */
+.bonus-icon, .mobile-icon, .support-icon, .responsible-icon {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-md);
+    display: block;
+    transition: all var(--transition-luxury);
+}
+
+.bonus-card:hover .bonus-icon, .mobile-card:hover .mobile-icon, 
+.support-card:hover .support-icon, .responsible-card:hover .responsible-icon {
+    transform: scale(1.2) rotate(10deg);
+    filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.5));
+}
+
+/* Title Styles for New Sections */
+.bonus-title, .mobile-title, .support-title, .responsible-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    color: var(--accent-emerald);
+}
+
+/* Description Styles for New Sections */
+.bonus-description, .mobile-description, .support-description, .responsible-description {
+    color: var(--luxury-white);
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Responsible Gaming Notice */
+.responsible-notice {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+    border: 2px solid rgba(239, 68, 68, 0.3);
+    border-radius: 16px;
+    padding: var(--spacing-2xl);
+    margin-top: var(--spacing-2xl);
+    text-align: center;
+}
+
+.notice-content h4 {
+    color: var(--accent-emerald);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.notice-content p {
+    color: var(--luxury-white);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+}
+
+.help-links {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.help-links a {
+    color: var(--accent-emerald);
+    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--accent-emerald);
+    border-radius: 8px;
+    transition: all var(--transition-normal);
+    font-weight: 500;
+}
+
+.help-links a:hover {
+    background: var(--accent-emerald);
+    color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-headline {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .hero-subheadline {
+        font-size: var(--font-size-lg);
+    }
+    
+    .hero-ctas {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .luxury-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .banking-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bonuses-grid, .mobile-grid, .support-grid, .responsible-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .help-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .floating-elements {
+        display: none;
+    }
+    
+    .hero-bg-shapes .shape {
+        display: none;
+    }
+}
+
+/* Accessibility & Performance */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .parallax-layer,
+    .floating-card,
+    .shape {
+        animation: none !important;
+    }
+}
+
+/* Focus states for accessibility */
+button:focus,
+a:focus,
+.lang-btn:focus {
+    outline: 2px solid var(--accent-emerald);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+}
+
+/* Loading Animation */
+.luxury-spinner {
+    width: 60px;
+    height: 60px;
+    border: 3px solid rgba(16, 185, 129, 0.2);
+    border-top: 3px solid var(--accent-emerald);
+    border-radius: 50%;
+    animation: luxurySpin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+    box-shadow: var(--shadow-emerald);
+}
+
+@keyframes luxurySpin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Utility Classes */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.no-js-message {
+    background: var(--warning);
+    color: var(--primary-dark);
+    padding: var(--spacing-md);
+    text-align: center;
+    font-weight: 600;
+}
+
+/* RTL Support */
+[dir="rtl"] .header-content {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .logo {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero-ctas {
+    direction: rtl;
+}
+
+[dir="rtl"] .luxury-btn {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .review-header {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer-content {
+    flex-direction: row-reverse;
+}
+
+/* Fix ranking table column order in RTL */
+[dir="rtl"] .ranking-table {
+    direction: ltr !important;
+}
+[dir="rtl"] .ranking-table th,
+[dir="rtl"] .ranking-table td {
+    text-align: right;
+}
+
+/* 3D Casino Card Styles - Encapsulated */
+.casino-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: stretch;
+  margin: 3rem 0;
+}
+
+.casino-card-3d {
+  --card-width: 340px;
+  --card-height: 220px;
+  --card-bg: linear-gradient(135deg, #0f172a 0%, #064e3b 100%);
+  --card-glow: 0 0 32px 0 #10b981;
+  --card-emerald: #10b981;
+  --card-shadow: 0 8px 32px 0 rgba(0,0,0,0.25);
+  width: var(--card-width);
+  height: var(--card-height);
+  background: var(--card-bg);
+  border-radius: 1.5rem;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  perspective: 1200px;
+  transition: box-shadow 0.3s;
+  will-change: transform;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+}
+
+.casino-card-3d.petra {
+  border: 2.5px solid var(--card-emerald);
+  box-shadow: var(--card-glow), var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.casino-card-3d.petra::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  background: url('https://cdn.petra.bet/white_logo_539a9e6611.png') no-repeat center center / contain;
+  opacity: 0.13;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.casino-card-3d.petra .casino-card-header,
+.casino-card-3d.petra .casino-card-body {
+  position: relative;
+  z-index: 1;
+}
+
+.casino-card-3d .casino-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.7rem;
+}
+
+.casino-card-3d .casino-card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex: 1;
+}
+
+.casino-card-3d .casino-card-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.casino-card-3d .casino-card-stat {
+  font-size: 1.05rem;
+  color: #fff;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.casino-card-3d .casino-card-stat .label {
+  min-width: 60px;
+  color: #b8b8b8;
+  font-size: 0.98rem;
+}
+
+.casino-card-3d .casino-card-stat .value {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.casino-card-3d .casino-card-stat.bonus .value,
+.casino-card-3d.petra .casino-card-stat .value {
+  color: var(--card-emerald);
+}
+
+.casino-card-3d .casino-card-overall {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--card-emerald);
+  align-self: flex-end;
+  margin-left: 1.5rem;
+  text-shadow: 0 0 10px #10b981cc;
+}
+
+.casino-card-3d .casino-card-icon {
+  font-size: 2.1rem;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .casino-cards-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+/* 3D Emerald Read More Button for Review Cards */
+.read-more-btn {
+    display: inline-block;
+    margin-top: 1.1rem;
+    align-self: flex-end;
+    background: linear-gradient(135deg, var(--accent-emerald) 60%, var(--accent-emerald-dark) 100%);
+    color: var(--primary-dark);
+    border: none;
+    border-radius: 10px;
+    padding: 0.55rem 1.5rem;
+    font-weight: 700;
+    font-size: 1.08rem;
+    cursor: pointer;
+    box-shadow: 0 4px 18px 0 rgba(16,185,129,0.18), 0 0 0 2px rgba(16,185,129,0.18);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.2s, color 0.2s, background 0.2s;
+    z-index: 1;
+}
+.read-more-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%; height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.0) 100%);
+    transform: skewX(-25deg);
+    transition: left 0.5s cubic-bezier(0.4,0,0.2,1);
+    z-index: 2;
+}
+.read-more-btn:hover::before {
+    left: 120%;
+    transition: left 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.read-more-btn:hover {
+    background: linear-gradient(135deg, var(--accent-emerald-dark) 0%, var(--accent-emerald) 100%);
+    color: #d1fae5;
+    box-shadow: 0 8px 32px 0 #10b981cc, 0 0 16px 4px #10b981cc;
+    transform: translateY(-2px) scale(1.04) rotateX(4deg);
+}
+.read-more-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px 0 #10b981cc;
+}
+
+.luxury-gradient-bar {
+  background: linear-gradient(90deg, #0f172a 0%, #0f172a 60%, #10b981 90%, #d1fae5 100%);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(16,185,129,0.13), 0 2px 12px #0f172a33;
+  padding: 1.5rem 2.2rem;
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 2.5px solid #10b981;
+  filter: blur(0.5px) saturate(1.1);
+  transition: background 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0;
+  justify-items: stretch;
+  align-items: stretch;
+  margin-top: 2.5rem;
+}
+
+.game-card-3d {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  min-width: 0;
+  min-height: 0;
+  background: #0f172a;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+  transition: border 0.2s, transform 0.18s;
+  border: 2px solid transparent;
+}
+.game-card-3d:hover {
+  border: 2px solid #10b981;
+  transform: scale(1.03);
+  z-index: 2;
+}
+.game-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex: 1 1 auto;
+  background: #181828;
+  border-radius: 0;
+}
+.game-card-info {
+  padding: 0.7rem 0.7rem 0.7rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: linear-gradient(0deg, rgba(15,23,42,0.92) 80%, rgba(15,23,42,0.0) 100%);
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+.game-card-provider {
+  font-size: 0.85rem;
+  color: #10b981;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+}
+.game-card-title {
+  font-size: 1.01rem;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 0.1rem;
+  line-height: 1.2;
+}
+.game-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+@media (max-width: 600px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.affiliate-section-lux {
+  max-width: 1100px;
+  margin: 4rem auto 3rem auto;
+  padding: 3.5rem 2.5rem 2.5rem 2.5rem;
+  background: linear-gradient(120deg, rgba(15,23,42,0.85) 60%, rgba(16,185,129,0.13) 100%);
+  border-radius: 32px 32px 18px 18px;
+  box-shadow: 0 12px 48px 0 #10b98133, 0 0 0 4px #10b98111;
+  backdrop-filter: blur(18px) saturate(1.2);
+  border: 3.5px solid #10b981;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.affiliate-section-lux::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 7px;
+  background: linear-gradient(90deg, #10b981 0%, #d1fae5 100%);
+  border-radius: 32px 32px 0 0;
+  z-index: 2;
+}
+.affiliate-title-lux {
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #10b981 60%, #d1fae5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1.5px;
+  position: relative;
+}
+.affiliate-title-lux::after {
+  content: '';
+  display: block;
+  margin: 1.1rem auto 0 auto;
+  width: 120px;
+  height: 5px;
+  background: linear-gradient(90deg, #10b981 60%, #d1fae5 100%);
+  border-radius: 3px;
+}
+.affiliate-steps-lux {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+.affiliate-step-lux {
+  background: rgba(15,23,42,0.92);
+  border-radius: 18px 18px 8px 8px;
+  border-left: 5px solid #10b981;
+  min-width: 180px;
+  max-width: 240px;
+  padding: 1.7rem 1.3rem 1.3rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 24px #10b98133;
+  position: relative;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.affiliate-step-lux:hover {
+  box-shadow: 0 8px 32px #10b981cc;
+  border-left: 5px solid #d1fae5;
+}
+.affiliate-step-lux .icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  color: #10b981;
+  text-shadow: 0 2px 12px #10b981cc;
+}
+.affiliate-step-lux .title {
+  font-weight: 900;
+  color: #10b981;
+  font-size: 1.18rem;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.5px;
+}
+.affiliate-step-lux .desc {
+  color: #d1fae5;
+  font-size: 1.05rem;
+  text-align: center;
+  font-weight: 600;
+}
+.affiliate-divider-lux {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #10b981 0%, #d1fae5 100%);
+  margin: 2.2rem 0 1.5rem 0;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+.affiliate-advantages-lux {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+  margin-bottom: 2.2rem;
+  list-style: none;
+  padding: 0;
+}
+.affiliate-adv-lux {
+  color: #d1fae5;
+  font-size: 1.13rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.1rem 0.7rem;
+  width: 100%;
+  max-width: 600px;
+  border-bottom: 2px solid #10b981;
+  position: relative;
+}
+.affiliate-adv-lux:last-child {
+  border-bottom: none;
+}
+.affiliate-adv-lux .check {
+  color: #10b981;
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+.affiliate-cta-lux {
+  display: inline-block;
+  margin-top: 1.2rem;
+  background: linear-gradient(90deg, #10b981 60%, #d1fae5 100%);
+  color: #0f172a;
+  border: none;
+  border-radius: 14px;
+  padding: 1.1rem 3.2rem;
+  font-weight: 900;
+  font-size: 1.18rem;
+  box-shadow: 0 8px 32px 0 #10b981cc, 0 0 16px 4px #10b981cc;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  transition: box-shadow 0.2s, background 0.2s, color 0.2s, transform 0.2s;
+  position: relative;
+  z-index: 2;
+}
+.affiliate-cta-lux:hover {
+  background: linear-gradient(90deg, #d1fae5 0%, #10b981 100%);
+  color: #0f172a;
+  box-shadow: 0 16px 48px 0 #10b981cc, 0 0 32px 8px #10b981cc;
+  transform: translateY(-2px) scale(1.04);
+}
+@media (max-width: 900px) {
+  .affiliate-section-lux {
+    padding: 2.2rem 0.7rem 1.5rem 0.7rem;
+  }
+  .affiliate-steps-lux {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .affiliate-step-lux {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+  .affiliate-advantages-lux {
+    max-width: 100%;
+  }
+}
+
+h3 {
+  text-transform: uppercase;
+}
+.casino-cards-container .casino-card-3d .casino-card-header span {
+  text-transform: uppercase;
+}
+
+#luxury-popup-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15,23,42,0.75);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+  opacity: 0;
+  pointer-events: none;
+}
+#luxury-popup-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+#luxury-popup {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0.85);
+  opacity: 0;
+  z-index: 2100;
+  min-width: 320px;
+  max-width: 95vw;
+  background: linear-gradient(120deg, rgba(15,23,42,0.97) 60%, rgba(16,185,129,0.18) 100%);
+  border-radius: 28px;
+  box-shadow: 0 12px 48px 0 #10b98133, 0 0 0 4px #10b98111;
+  border: 3.5px solid #10b981;
+  padding: 2.5rem 2.2rem 2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+}
+#luxury-popup.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: all;
+}
+.luxury-popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.luxury-popup-icon {
+  font-size: 3.2rem;
+  color: #10b981;
+  text-shadow: 0 2px 18px #10b981cc;
+  margin-bottom: 0.5rem;
+}
+.luxury-popup-message {
+  color: #d1fae5;
+  font-size: 1.18rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+  text-shadow: 0 2px 10px #10b981cc;
+  max-width: 420px;
+  display: block;
+}
+.luxury-popup-btn {
+  background: linear-gradient(90deg, #10b981 60%, #d1fae5 100%);
+  color: #0f172a;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2.5rem;
+  font-weight: 900;
+  font-size: 1.13rem;
+  box-shadow: 0 8px 32px 0 #10b981cc, 0 0 16px 4px #10b981cc;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  transition: box-shadow 0.2s, background 0.2s, color 0.2s, transform 0.2s;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+.luxury-popup-btn:hover {
+  background: linear-gradient(90deg, #d1fae5 0%, #10b981 100%);
+  color: #0f172a;
+  box-shadow: 0 16px 48px 0 #10b981cc, 0 0 32px 8px #10b981cc;
+  transform: translateY(-2px) scale(1.04);
+}
+@media (max-width: 600px) {
+  #luxury-popup {
+    min-width: 0;
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  }
+  .luxury-popup-message {
+    font-size: 1.01rem;
+    max-width: 90vw;
+  }
+}
+[dir="rtl"] #luxury-popup {
+  direction: rtl;
+}
+
+/* Glassy Frame for Casino Logos */
+.glassy-frame {
+  background: rgba(15,23,42,0.55);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 #10b98133, 0 0 0 4px #10b98111;
+  border: 2.5px solid rgba(16,185,129,0.18);
+  padding: 1.5rem 2.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.petra-emerald-frame {
+  border: 3.5px solid #10b981;
+  box-shadow: 0 8px 32px 0 #10b981cc, 0 0 0 4px #10b98111;
+  border-radius: 32px;
+  background: linear-gradient(120deg, rgba(15,23,42,0.85) 60%, rgba(16,185,129,0.13) 100%);
+  position: relative;
+}
+
+.petra-emerald-frame .luxury-btn {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.casino-promos-logo {
+  display: block;
+  margin: 0 auto;
+  max-width: 320px;
+  height: 90px;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .glassy-frame, .petra-emerald-frame, .betway-silver-frame, .rabona-bronze-frame {
+    padding: 0.7rem 0.5rem;
+    border-radius: 18px;
+    max-width: 95vw;
+  }
+  .casino-promos-logo {
+    height: 56px;
+    max-width: 180px;
+  }
+}
+
+.betway-silver-frame {
+  border: 3.5px solid #bfc9d1;
+  box-shadow: 0 8px 32px 0 #bfc9d1cc, 0 0 0 4px #bfc9d111;
+  border-radius: 32px;
+  background: linear-gradient(120deg, rgba(15,23,42,0.85) 60%, rgba(191,201,209,0.13) 100%);
+  position: relative;
+}
+
+.rabona-bronze-frame {
+  border: 3.5px solid #cd7f32;
+  box-shadow: 0 8px 32px 0 #cd7f32cc, 0 0 0 4px #cd7f3211;
+  border-radius: 32px;
+  background: linear-gradient(120deg, rgba(15,23,42,0.85) 60%, rgba(205,127,50,0.13) 100%);
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  .betway-silver-frame, .rabona-bronze-frame {
+    padding: 0.7rem 0.5rem;
+    border-radius: 18px;
+    max-width: 95vw;
+  }
+}
+
+.promos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem 2.5rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 700px) {
+  .promos-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 3rem;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 1050px) {
+  .promos-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2.5rem 3rem;
+  }
+}
